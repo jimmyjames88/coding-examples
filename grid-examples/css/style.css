@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-wrapper {
+    display: grid;
+    /* grid-template-columns: 25% 25% 25% 25%; */
+    /* grid-template-columns: 300px 3fr 1fr; */
+    grid-template-columns: minmax(100px, 300px) minmax(400px, 3fr) minmax(200px, 1fr);
+    /* grid-template-columns: 150px 1fr 150px; */
+    /* grid-template-rows: 100px 1fr 50px; */
+    grid-gap: 1rem;
+    grid-template-areas: 
+        'lsidebar header rsidebar'
+        'lsidebar content rsidebar'
+        'lsidebar footer rsidebar';
+    /* min-height: 100vh; */
+    /* justify-items: center;
+    align-items: center; */
+    /* place-items: center; */
+}
+
+.grid-wrapper > div {
+    background-color: grey;
+    padding: 1rem;
+}
+
+.one {
+    grid-area: header;
+}
+
+.two {
+    grid-area: lsidebar;
+}
+
+.three {
+    grid-area: content;
+    /* justify-self: start;
+    align-self: stretch; */
+}
+
+.four {
+    grid-area: rsidebar;
+}
+
+.five {
+    grid-area: footer;
+}
+
+/* .one,
+.five {
+    grid-column: 1/4;
+} */
