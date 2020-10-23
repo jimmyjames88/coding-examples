@@ -1,0 +1,36 @@
+.one {
+    width: 200px;
+    height: 200px;
+    /* transition: height 2s ease-in-out; */
+    transition-property: height;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 1s;
+    background-color: #ff00ff;
+}
+.one:hover {
+    height: 400px;
+}
+@keyframes colorShift {
+    33% {
+        background-color: blue;
+    }
+    67% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: red;
+    }
+}
+.two {
+    width: 500px;
+    height: 500px;
+    background-color: black;
+}
+.two:hover {
+    animation-name: colorShift;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-delay: 1s;
+    animation-iteration-count: 3;
+}
