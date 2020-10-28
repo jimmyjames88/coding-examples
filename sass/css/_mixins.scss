@@ -1,0 +1,5 @@
+@mixin fancy-borders($thickness, $color) {
+    border: $thickness solid $color;
+    box-shadow: grey 3px 3px 5px;
+    border-radius: 8px;
+}

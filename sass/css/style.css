@@ -1,0 +1,53 @@
+#card-content {
+  display: -ms-grid;
+  display: grid;
+  border: 20px solid red;
+  -webkit-box-shadow: grey 3px 3px 5px;
+          box-shadow: grey 3px 3px 5px;
+  border-radius: 8px;
+}
+
+#card-content > h1 {
+  font-weight: bold;
+  color: purple;
+  font-family: "Verdana", sans-serif;
+  border: 10px solid purple;
+  -webkit-box-shadow: grey 3px 3px 5px;
+          box-shadow: grey 3px 3px 5px;
+  border-radius: 8px;
+}
+
+#card-content > h1 span {
+  color: black;
+}
+
+a {
+  color: blue;
+  font-weight: bold;
+}
+
+a:active {
+  background-color: blue;
+  color: navy;
+}
+
+a:visited {
+  color: navy;
+}
+
+a:hover {
+  color: purple;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: yellow;
+  font-family: "Georgia", serif;
+}
+/*# sourceMappingURL=style.css.map */

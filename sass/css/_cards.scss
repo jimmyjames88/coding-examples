@@ -1,0 +1,36 @@
+@import '_colors.scss';
+@import '_mixins.scss';
+
+#card-content {
+    display: grid;
+    @include fancy-borders(20px, red);
+
+    > h1 {
+        font-weight: bold;
+        color: $color-accent;
+        font-family: $font-heading;
+        @include fancy-borders(10px, purple);
+
+        span {
+            color: black;
+        }
+    }
+}
+
+a {
+    color: $color-secondary;
+    font-weight: bold;
+
+    &:active {
+        background-color: $color-secondary;
+        color: $color-tertiary;
+    }
+
+    &:visited {
+        color: $color-tertiary;
+    }
+
+    &:hover {
+        color: $color-accent;
+    }
+}
