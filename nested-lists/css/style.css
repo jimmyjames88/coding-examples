@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul {
+   display: flex;
+   list-style-type: none;
+   height: 40px;
+}
+li {
+    padding: 0.5rem;
+    position: relative;
+}
+li:hover > ul {
+    display: flex;
+}
+li > ul {
+    position: absolute;
+    left: 0;
+    top: 40px;
+}
+ul ul {
+    display: none;
+}
