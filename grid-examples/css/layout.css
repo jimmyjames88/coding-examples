@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-rows: 100px 1fr 50px;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #666;
+}
+
+footer {
+    background-color: #333;
+}
