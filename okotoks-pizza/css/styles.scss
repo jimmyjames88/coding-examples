@@ -1,0 +1,111 @@
+$color-smoke: #f9f9f9;
+$color-grey: #bbb;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.layout-wrapper {
+    display: grid;
+    grid-template-rows: 60px 1fr 40px;
+    min-height: 100vh;
+
+    > header {
+        background-color: $color-grey;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        // grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+
+        .logo img {
+            height: 60px;
+        }
+
+        .phone {
+            justify-self: center;
+        }
+
+        .navigation {
+            justify-self: end;
+
+            .menu {
+                display: none;
+            }
+        }
+    }
+    > main {
+        background-color: $color-smoke;
+    }
+    > footer {
+        background-color: $color-grey;
+    }
+}
+
+.food-menu-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.25rem;
+
+    > .item {
+        background-color: $color-grey;
+
+        > .image {
+            height: 200px;
+            background-size: cover;
+            background-position: center center;
+        }
+
+    }
+}
+
+// tablet
+@media only screen and (min-width: 768px) {
+
+    .layout-wrapper header {
+        .navigation {
+            order: 2;
+            justify-self: center;
+
+            button {
+                display: none;
+            }
+
+            .menu {
+                display: block;
+                list-style-type: none;
+                display: flex;
+
+                > li {
+                    margin: 0 1rem;
+                }
+            }
+        }
+
+        .phone {
+            order: 3;
+            justify-self: end;
+        }
+    }
+
+    .food-menu-wrapper {
+        // grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+// desktop
+@media only screen and (min-width: 991px) {
+    .food-menu-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+// ultrawide
+@media only screen and (min-width: 1900px) {
+    .food-menu-wrapper {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

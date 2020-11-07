@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.layout-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 60px 1fr 40px;
+      grid-template-rows: 60px 1fr 40px;
+  min-height: 100vh;
+}
+
+.layout-wrapper > header {
+  background-color: #bbb;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.layout-wrapper > header .logo img {
+  height: 60px;
+}
+
+.layout-wrapper > header .phone {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.layout-wrapper > header .navigation {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.layout-wrapper > header .navigation .menu {
+  display: none;
+}
+
+.layout-wrapper > main {
+  background-color: #f9f9f9;
+}
+
+.layout-wrapper > footer {
+  background-color: #bbb;
+}
+
+.food-menu-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 0.25rem;
+}
+
+.food-menu-wrapper > .item {
+  background-color: #bbb;
+}
+
+.food-menu-wrapper > .item > .image {
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media only screen and (min-width: 768px) {
+  .layout-wrapper header .navigation {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .layout-wrapper header .navigation button {
+    display: none;
+  }
+  .layout-wrapper header .navigation .menu {
+    display: block;
+    list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .layout-wrapper header .navigation .menu > li {
+    margin: 0 1rem;
+  }
+  .layout-wrapper header .phone {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    -ms-grid-column-align: end;
+        justify-self: end;
+  }
+  .food-menu-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  .food-menu-wrapper {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  .food-menu-wrapper {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+  }
+}
+/*# sourceMappingURL=styles.css.map */
