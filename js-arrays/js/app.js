@@ -1,7 +1,13 @@
 // simple array
 var cars = [
     'Acura RSX', 
-
+    'Subaru WRX', 
+    'Subaru WRX STI', 
+    'Subaru Impreza', 
+    'Acura EL',
+    'Mitsubishi Evo',
+    'BMW M3',
+    'Toyota Celica GT-Four'
 ];
 
 // append the array
@@ -32,7 +38,9 @@ for(var counter = 0; counter < 10; counter++) {
 for (var i = 0; i < 3; i++) {
     console.log(cars[i])
 }
+
 console.log('-----------')
+
 // cars loop
 for (var i = 0; i < cars.length; i++) {
     console.log(cars[i])
