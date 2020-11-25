@@ -1,4 +1,4 @@
-let message = 'Hello world!!!';
+const message = 'Hello world!!!';
 let newMessages = 5;
 
 function checkMessages() {
