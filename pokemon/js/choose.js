@@ -9,6 +9,23 @@ function startGame(choice) {
             - Hint: all of this information can be passed in a single cookie
         - Redirect the user to the battle page (https://www.w3schools.com/howto/howto_js_redirect_webpage.asp)
     */
+
+    let randomNumber = Math.floor(Math.random() * pokemon.length);
+    
+    let game = {
+        player: {
+            health: pokemon[choice].hp,
+            pokemon: pokemon[choice]
+        },
+        cpu: {
+            health: pokemon[randomNumber].hp,
+            pokemon: pokemon[randomNumber]
+        }
+    }
+
+    Cookies.set('game', game);
+
+    location.href = 'battle.html';
 }
 
 // Map function to create a choice button for each Pokemon in the list
