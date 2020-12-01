@@ -1,4 +1,4 @@
-function startGame(choice) {
+function startGame(index) {
     /*
         - Randomly select a pokemon for the CPU (https://www.w3schools.com/js/js_random.asp)
         - Save the state of the game by storing the following information in a cookie or cookies:
@@ -10,22 +10,28 @@ function startGame(choice) {
         - Redirect the user to the battle page (https://www.w3schools.com/howto/howto_js_redirect_webpage.asp)
     */
 
-    let randomNumber = Math.floor(Math.random() * pokemon.length);
-    
-    let game = {
+    const randomNumber = Math.floor(Math.random() * pokemon.length);
+
+    // setup the game
+    const game = {
+        firstRound: true,
         player: {
-            health: pokemon[choice].hp,
-            pokemon: pokemon[choice]
+            pokemon: pokemon[index],
+            health: pokemon[index].hp,
+            move: null
         },
         cpu: {
+            pokemon: pokemon[randomNumber],
             health: pokemon[randomNumber].hp,
-            pokemon: pokemon[randomNumber]
+            move: null
         }
     }
 
-    Cookies.set('game', game);
+    console.log(game);
 
+    Cookies.set('game', JSON.stringify(game));
     location.href = 'battle.html';
+
 }
 
 // Map function to create a choice button for each Pokemon in the list
@@ -37,8 +43,16 @@ pokemon.map(function(choice, index) {
     div.innerHTML = `
         <img src="${choice.image}">
         <h3>${choice.name}</h3>
-        <p>Atk: ${choice.attack} | HP: ${choice.hp}</p>
     `;
+
+    let attackList = document.createElement('ul');
+    choice.attacks.map(function(attack) {
+        let attackItem = document.createElement('li');
+        attackItem.innerText = attack.name
+        attackList.append(attackItem);
+    });
+
+    div.append(attackList);
 
     // make the div clickable
     div.addEventListener('click', function() {

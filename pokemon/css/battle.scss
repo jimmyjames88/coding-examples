@@ -1,12 +1,33 @@
+body {
+    font-family: verdana, sans-serif;
+    background: linear-gradient(90deg, red, blue);
+    color: #fff;
+}
+
 .battle {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 5%;
 
     > div {
         text-align: center;
 
+        &:nth-child(1) img {
+            transform: scale(-1, 1);
+
+            &.animate {
+                animation: attackFromLeft 1.5s ease-in-out 0.5s;
+            }
+        }
+
+        &:nth-child(2) img.animate {
+            animation: attackFromRight 1.5s ease-in-out 0.75s;
+        }
+
         img {
             height: 200px;
+            position: relative;
         }
     }
 }
@@ -18,4 +39,32 @@
 
 footer {
     text-align: center;
+}
+
+@keyframes attackFromLeft {
+    0% {
+        left: 0;
+    }
+    20% {
+        left: 40%;
+        transform: rotate(10deg) scale(-1, 1);
+    }
+    100% {
+        left: 0;
+        transform: rotate(0deg) scale(-1, 1);
+    }
+}
+
+@keyframes attackFromRight {
+    0% {
+        left: 0;
+    }
+    20% {
+        left: -40%;
+        transform: rotate(-10deg);
+    }
+    100% {
+        left: 0;
+        transform: rotate(0deg);
+    }
 }
