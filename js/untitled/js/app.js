@@ -7,7 +7,33 @@ let dogPhotos = [
     'https://random.dog/3c8233e8-c1d0-4214-9848-7658e6d9807e.jpg' 
 ];
 
+// functions (w9g)
+function isVideo(url) {
+    return url.includes('.mp4');
+}
+
+// access individual array items by their array index (w9e)
+console.log(dogPhotos[2]);
+
+// set page title - dom selectors (w10a) - element manipulation (w10b)
+document.querySelector('.title').innerText = pageTitle;
+
 // loops (w9f)
 for(let i = 0; i < dogPhotos.length; i++) {
-    console.log(dogPhotoURLs[i]);
-} 
+    let container = document.querySelector('.dog-photos');
+    let div = document.createElement('div');
+    div.classList.add('photo-wrapper');
+
+    // functions (w9g) and element manipulation (w10b)
+    if(isVideo(dogPhotos[i])) {
+        photo = document.createElement('video');
+        photo.setAttribute('controls', true);
+    } else {
+        photo = document.createElement('img');
+    }
+    photo.setAttribute('src', dogPhotos[i]);
+
+    div.append(photo);
+    container.append(div);
+
+}
