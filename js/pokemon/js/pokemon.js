@@ -1,6 +1,7 @@
 const pokemon = [
     {
         name: 'Charmander',
+        type: 'fire',
         hp: 150,
         attacks: [
             {
@@ -18,6 +19,7 @@ const pokemon = [
     },
     {
         name: 'Squirtle',
+        type: 'water',
         hp: 140,
         attacks: [
             {
@@ -35,6 +37,7 @@ const pokemon = [
     },
     {
         name: 'Bulbasaur',
+        type: 'grass',
         hp: 160,
         attacks: [
             {

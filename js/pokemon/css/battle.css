@@ -3,6 +3,22 @@ body {
   background: -webkit-gradient(linear, left top, right top, from(red), to(blue));
   background: linear-gradient(90deg, red, blue);
   color: #fff;
+  -webkit-animation: flashBg 0.3s ease 0.5s;
+          animation: flashBg 0.3s ease 0.5s;
+  -webkit-animation-iteration-count: 5;
+          animation-iteration-count: 5;
+}
+
+@-webkit-keyframes flashBg {
+  0% {
+    background: red;
+  }
+}
+
+@keyframes flashBg {
+  0% {
+    background: red;
+  }
 }
 
 .battle {

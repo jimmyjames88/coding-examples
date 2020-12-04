@@ -2,6 +2,14 @@ body {
     font-family: verdana, sans-serif;
     background: linear-gradient(90deg, red, blue);
     color: #fff;
+    animation: flashBg 0.3s ease 0.5s;
+    animation-iteration-count: 5;
+}
+
+@keyframes flashBg { 
+    0% {
+        background: red;
+    }
 }
 
 .battle {

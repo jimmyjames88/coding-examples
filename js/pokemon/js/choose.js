@@ -38,7 +38,8 @@ function startGame(index) {
 pokemon.map(function(choice, index) {
     // create a div in memory with the image, name and basic stats
     let div = document.createElement('div');
-    
+    div.classList.add(choice.type);
+
     // popuplate the div
     div.innerHTML = `
         <img src="${choice.image}">

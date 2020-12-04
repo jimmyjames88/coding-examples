@@ -8,6 +8,7 @@ let dogPhotos = [
 ];
 
 // functions (w9g)
+// check to see if url is a video
 function isVideo(url) {
     return url.includes('.mp4');
 }
@@ -15,25 +16,27 @@ function isVideo(url) {
 // access individual array items by their array index (w9e)
 console.log(dogPhotos[2]);
 
-// set page title - dom selectors (w10a) - element manipulation (w10b)
+// dom selectors (w10a) - element manipulation (w10b)
+// display the page title in an existing html element
 document.querySelector('.title').innerText = pageTitle;
 
 // loops (w9f)
+// loop through the list of dog photos and create html elements to display them
 for(let i = 0; i < dogPhotos.length; i++) {
     let container = document.querySelector('.dog-photos');
     let div = document.createElement('div');
     div.classList.add('photo-wrapper');
 
     // functions (w9g) and element manipulation (w10b)
+    // if the url is a video, set up a video element, otherwise setup an img element
     if(isVideo(dogPhotos[i])) {
-        photo = document.createElement('video');
-        photo.setAttribute('controls', true);
+        elem = document.createElement('video');
+        elem.setAttribute('controls', true);
     } else {
-        photo = document.createElement('img');
+        elem = document.createElement('img');
     }
-    photo.setAttribute('src', dogPhotos[i]);
+    elem.setAttribute('src', dogPhotos[i]);
 
-    div.append(photo);
+    div.append(elem);
     container.append(div);
-
 }
