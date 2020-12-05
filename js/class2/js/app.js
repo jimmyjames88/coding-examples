@@ -1,17 +1,18 @@
 class Pokemon {
+    element = {};
+
     constructor(name, hp, attack) {
         this.name = name;
         this.hp = hp;
         this.currentHp = hp;
         this.attack = attack;
-
         this.createHTML();
     }
 
     createHTML() {
         // create a div to house the pokemon info
-        let div = document.createElement('div');
-        div.classList.add('pokemon');
+        this.element = document.createElement('div');
+        this.element.classList.add('pokemon');
         
         // create h3 for pokemon name
         let name = document.createElement('h3');
@@ -24,19 +25,36 @@ class Pokemon {
         // create healthbar inner div, set css width of it
         let currentHealth = document.createElement('div');
         let healthPercentage = Math.round(this.currentHp / this.hp * 100);
-        currentHealth.style.width = healthPercentage;
+        currentHealth.style.width = this.healthPercentage();
         
         // add name and healthbar to div, then add div to container
         let container = document.querySelector('.container');  
         healthbar.append(currentHealth);      
-        div.append(name);
-        div.append(healthbar);
-        container.append(div);
+        this.element.append(name);
+        this.element.append(healthbar);
+        container.append(this.element);
     }
 
     doAttack(target) {
-        target.currentHp = target.currentHp - this.attack;
+        target.receiveDamage(this.attack);
         console.log(`${this.name} attacks ${target.name} and deals ${this.attack} damage (${target.currentHp} remains)`);
+    }
+
+    healthPercentage() {
+        //return (this.currentHp / this.hp * 100) + '%';
+        let percent = this.currentHp / this.hp * 100;
+        return percent + '%';
+    }
+
+    receiveDamage(damage) {
+        this.currentHp = this.currentHp - damage;
+
+        if(this.currentHp < 0) {
+            this.currentHp = 0;
+        }
+
+        let inner = this.element.querySelector('.healthbar > div');
+        inner.style.width = this.healthPercentage();
     }
 }
 
