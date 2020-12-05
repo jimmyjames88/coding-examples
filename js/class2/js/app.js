@@ -4,6 +4,34 @@ class Pokemon {
         this.hp = hp;
         this.currentHp = hp;
         this.attack = attack;
+
+        this.createHTML();
+    }
+
+    createHTML() {
+        // create a div to house the pokemon info
+        let div = document.createElement('div');
+        div.classList.add('pokemon');
+        
+        // create h3 for pokemon name
+        let name = document.createElement('h3');
+        name.innerText = this.name;
+        
+        // create healthbar div
+        let healthbar = document.createElement('div');
+        healthbar.classList.add('healthbar');
+        
+        // create healthbar inner div, set css width of it
+        let currentHealth = document.createElement('div');
+        let healthPercentage = Math.round(this.currentHp / this.hp * 100);
+        currentHealth.style.width = healthPercentage;
+        
+        // add name and healthbar to div, then add div to container
+        let container = document.querySelector('.container');  
+        healthbar.append(currentHealth);      
+        div.append(name);
+        div.append(healthbar);
+        container.append(div);
     }
 
     doAttack(target) {
