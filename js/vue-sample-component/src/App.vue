@@ -1,7 +1,11 @@
 <template>
     <div id="app">
         <img alt="Vue logo" src="./assets/logo.png">
-        <todo-list></todo-list>
+        <todo-list 
+            :items="itemList"
+            @add="doAddItem" 
+            @clear="doClearItems">
+        </todo-list>
     </div>
 </template>
 
@@ -12,6 +16,25 @@ export default {
     name: 'App',
     components: {
          TodoList
+    },
+    data() {
+        return {
+            itemList: [
+                'Captain Crunch',
+                'Frosted Flakes',
+                'Coffee', 
+                'French Vanilla Creamer'
+            ] 
+        }
+    },
+
+    methods: {
+        doAddItem(item) {
+            this.itemList.splice(0, 0, item);
+        },
+        doClearItems() {
+            this.itemList = [];
+        },
     }
 }
 </script>

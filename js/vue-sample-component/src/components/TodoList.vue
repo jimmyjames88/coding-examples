@@ -20,23 +20,20 @@
             </li>
         </ul>
         <h4>You have {{ itemCount }} items to complete</h4>
+        <button @click="clearItems">Clear Items</button>
     </div>
 </template>
 
 <script>
 export default {
     name: 'TodoList', 
-
+    props: {
+        items: Array
+    },
     data() {
         return {
             title: '<em>My Grocery List</em>',
-            newItem: '',
-            items: [
-                'Captain Crunch',
-                'Frosted Flakes',
-                'Coffee', 
-                'French Vanilla Creamer'
-            ]
+            newItem: ''
         }
     },
 
@@ -48,8 +45,12 @@ export default {
 
     methods: {
         addItem() {
-            this.items.splice(0, 0, this.newItem);
+            this.$emit('add', this.newItem);
             this.newItem = '';
+        },
+
+        clearItems() {
+            this.$emit('clear');
         },
 
         isEven(n) {
@@ -60,6 +61,9 @@ export default {
         },
 
         removeItem(index) {
+            // this is bad - instead emit an event to the parent,
+            // and modify the data there instead. Don't manipulate props
+            // directly
             console.log('Target', index);
             this.items.splice(index, 1);
         }
