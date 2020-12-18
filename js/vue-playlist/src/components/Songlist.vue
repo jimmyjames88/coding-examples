@@ -13,16 +13,20 @@
                 </span>
                 {{ song.artist }} - {{ song.title }}
             </a>
+            <add-song @addNewSong="addNewSong"></add-song>
         </nav>
     </div>
 </template>
 
 <script>
+import AddSong from './AddSong';
+
 export default {
     name: 'Songlist',
     props: {
         songs: Array
     },
+    components: { AddSong },
     computed: {
         // this computed property returns the current song count and is displayed in the panel head
         songCount() {
@@ -30,6 +34,9 @@ export default {
         }
     },
     methods: {
+        addNewSong(song) {
+            this.$emit('addNewSong', song);
+        },
         // $emit a custom event to let the parent component know we'd like to remove an item from it's songs data
         addToPlaylist(index) {
             this.$emit('add', index);

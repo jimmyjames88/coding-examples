@@ -2,7 +2,7 @@
     <div id="playlistManager">
         <h1 class="title">Playlist Manager</h1>
         <section>
-            <songlist :songs="songs" @add="moveToPlaylist"></songlist>
+            <songlist :songs="songs" @add="moveToPlaylist" @addNewSong="addNewSong"></songlist>
             <playlist :songs="playlistSongs" @remove="moveToSonglist"></playlist>
         </section>
     </div>
@@ -31,6 +31,9 @@ export default {
         }
     },
     methods: {
+        addNewSong(song) {
+            this.songs.splice(0, 0, song);
+        },
         moveToPlaylist(index) {
             // splice the song out of songs and in to playlistSongs
             let song = this.songs.splice(index, 1)[0];
