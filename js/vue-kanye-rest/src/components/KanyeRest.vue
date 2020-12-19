@@ -27,9 +27,6 @@ export default {
                 url: 'https://api.kanye.rest',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                params: {
-                    format: 'text',
                 }
             }).then((response) => { 
                 console.log(response);
