@@ -1,6 +1,7 @@
 # input() will collect a string value from the user
 name = input('What is your name?')
-color = input('What is your favorite color?')
+print('What is your favorite color?')
+color = input()
 
 # notice how we use the int() function to cast the user's
 # string input as an integer...
