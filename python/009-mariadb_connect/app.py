@@ -10,7 +10,7 @@ def connect():
         host=dbcreds.host, 
         port=dbcreds.port, 
         database=dbcreds.database
-
+    )
 
 # this method prints a list of members from the fitness_member table
 def view_members():
