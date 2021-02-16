@@ -51,7 +51,7 @@ def add_member():
     cursor = conn.cursor()                  # 2. create a cursor
     cursor.execute(                         # 3. execute a SQL query
         "INSERT INTO fitness_member (first_name, last_name, join_date, member_type) VALUES (?, ?, ?, ?)",
-        [first, last, joined, type]         # We've used a "prepared statement" here to prevent SQL injection attacks
+        [first, last, joined, type]         
     ) 
     conn.commit()                           # 4. commit the change (not required for a select statement)  
     
